@@ -136,7 +136,7 @@ export function ShelfSettings() {
   // 利用可能な列の一覧を生成
   const getAvailableColumns = () => {
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-    return alphabet.filter(letter => !shelfData[letter]);
+    return alphabet.filter(letter => !shelfData[letter as keyof typeof shelfData]);
   };
 
   return (
