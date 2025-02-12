@@ -86,9 +86,10 @@ export function Inventory() {
   const [quantity, setQuantity] = useState<number>(0);
 
   // 選択された場所の在庫を取得
-  const getInventoryForLocation = (column: string, position: string, level: string) => {
-    return mockInventory[column]?.[position]?.[level] || [];
-  };
+const getInventoryForLocation = (column: string, position: string, level: string) => {
+  return mockInventory[column as keyof typeof mockInventory]?.[position]?.[level] || [];
+};
+
 
   const handleActionClick = (
     action: InventoryAction,
