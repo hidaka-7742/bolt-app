@@ -27,19 +27,14 @@ const POSITIONS = Array.from({ length: 15 }, (_, i) => i + 1);
 const SHELF_LEVELS = [1, 2, 3];
 
 // モック在庫データ
-const mockInventory = {
-  'A': {
+const mockInventory: Record<string, Record<string, Record<string, { code: string; name: string; cases: number; }[]>>> = {
+  A: {
     '1': {
-      '1': [
-        { code: "PRD001", name: "プレミアムコーヒー豆", cases: 24 },
-        { code: "PRD002", name: "オーガニック紅茶", cases: 12 }
-      ],
-      '2': [
-        { code: "PRD003", name: "抹茶パウダー", cases: 18 }
-      ],
-      '3': []
-    }
-  }
+      '1': [{ code: 'A1-1-1', name: 'Item A1-1-1', cases: 10 }],
+      '2': [{ code: 'A1-2-1', name: 'Item A1-2-1', cases: 5 }],
+      '3': [],
+    },
+  },
 };
 
 type InventoryAction = 'outbound' | 'move';
