@@ -117,7 +117,7 @@ export function ShelfSettings() {
     }
 
     const newShelfData = { ...shelfData };
-    delete newShelfData[column];
+    delete newShelfData[column as keyof typeof newShelfData];
     setShelfData(newShelfData);
     setDeleteDialogOpen(false);
     setColumnToDelete(null);
