@@ -69,8 +69,9 @@ export function Products() {
     .sort((a, b) => {
       if (!sortField) return 0;
       
-      const aValue = a[sortField];
-      const bValue = b[sortField];
+const aValue = a[sortField as keyof typeof a];
+const bValue = b[sortField as keyof typeof b];
+
       
       if (sortDirection === 'asc') {
         return aValue > bValue ? 1 : -1;
