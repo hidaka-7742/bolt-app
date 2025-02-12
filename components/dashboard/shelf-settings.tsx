@@ -80,7 +80,7 @@ export function ShelfSettings() {
       return;
     }
 
-    if (shelfData[newColumnLetter]) {
+    if (shelfData[newColumnLetter as keyof typeof shelfData]) {
       toast({
         title: "エラー",
         description: `${newColumnLetter}列は既に存在します。`,
