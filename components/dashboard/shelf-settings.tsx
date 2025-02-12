@@ -39,7 +39,7 @@ export function ShelfSettings() {
 
   const handleEdit = (column: string) => {
     setSelectedColumn(column);
-    setEditData(shelfData[column]);
+    setEditData(shelfData[column as keyof typeof shelfData]);
     setShowWarning(false);
   };
 
