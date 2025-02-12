@@ -49,8 +49,9 @@ export function ShelfSettings() {
       const hasInventory = false; // 実際の実装では、データベースで確認
 
       if (hasInventory && 
-          (editData.positions < shelfData[selectedColumn].positions || 
-           editData.levels < shelfData[selectedColumn].levels)) {
+          (editData.positions < shelfData[selectedColumn as keyof typeof shelfData].positions ||
+ editData.levels < shelfData[selectedColumn as keyof typeof shelfData].levels)
+) {
         setShowWarning(true);
         return;
       }
