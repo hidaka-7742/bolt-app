@@ -739,7 +739,12 @@ const getInventoryForLocation = (column: string, position: string, level: string
                   </Select>
                   <Select
                     value={targetLocation?.position}
-                    onValueChange={(value) => setTargetLocation(prev => ({ ...prev || {}, position: value }))}
+                    onValueChange={(value) => setTargetLocation(prev => ({
+  position: value,
+  column: prev?.column ?? "", // `undefined` にならないように空文字を入れる
+  level: prev?.level ?? "" // `undefined` にならないように空文字を入れる
+}))}
+
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="番目" />
