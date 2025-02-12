@@ -721,7 +721,12 @@ const getInventoryForLocation = (column: string, position: string, level: string
                 <div className="grid grid-cols-3 gap-2">
                   <Select
                     value={targetLocation?.column}
-                    onValueChange={(value) => setTargetLocation(prev => ({ ...prev || {}, column: value }))}
+                    onValueChange={(value) => setTargetLocation(prev => ({
+  column: value,
+  position: prev?.position ?? "", // `undefined` にならないように空文字を入れる
+  level: prev?.level ?? "" // `undefined` にならないように空文字を入れる
+}))}
+
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="列" />
